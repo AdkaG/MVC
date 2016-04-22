@@ -14,6 +14,12 @@ namespace Laboration_1
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "Volvo",
+               url: "{controller}/{action}/{carModel}",
+               defaults: new { controller = "Company", action = "Volvo", carModel = 1}
+           );
+
+            routes.MapRoute(
                name: "LifeDefault",
                url: "Life/{action}/{id}",
                defaults: new { controller = "Life", action = "SuperMario", id = UrlParameter.Optional }
