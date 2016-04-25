@@ -22,7 +22,7 @@ namespace Laboration_1.Controllers
         {
             return View();
         }
-        public ActionResult Volvo(int carModel)
+        public ActionResult Volvo(int? carModel)
         {
             if (carModel == 60)
             {
@@ -37,7 +37,7 @@ namespace Laboration_1.Controllers
                 return View("Volvo_S90");
             }
             else return View();
-           
+
         }
 
         public ActionResult ShowVolvoDecsription(VolvoCar car)

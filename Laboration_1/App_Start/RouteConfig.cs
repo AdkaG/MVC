@@ -16,7 +16,7 @@ namespace Laboration_1
             routes.MapRoute(
                name: "Volvo",
                url: "{controller}/{action}/{carModel}",
-               defaults: new { controller = "Company", action = "Volvo", carModel = 1}
+               defaults: new { controller = "Company", action = "Volvo", carModel = UrlParameter.Optional }
            );
 
             routes.MapRoute(
