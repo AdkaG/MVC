@@ -13,15 +13,33 @@ namespace Laboration2_Uppgift2.Controllers
         // GET: Game
         public ActionResult TicTacToe()
         {
-            var ticTacToeModel = new TicTacToe();
-            ticTacToeModel.BoxList = new List<BoxInfo>()
+            var ticTacToeModel = new TicTacToe
             {
-                new BoxInfo('x', 1),
-                new BoxInfo('o', 2),
-                new BoxInfo('x', 3),
-                new BoxInfo('o', 7)
+                BoxList = new List<BoxInfo>
+                {
+                    new BoxInfo(1, 'x'),
+                    new BoxInfo(2, 'o'),
+                    new BoxInfo(3, 'x'),
+                    new BoxInfo(7, 'o')
+                },
+                Players = new List<string> {"Adriana", "Erik"}
             };
-            ticTacToeModel.Players = new List<string>() { "Adriana", "Erik" };
+
+            Session["tictactoeGameModel"] = ticTacToeModel;
+            return View(ticTacToeModel);
+        }
+
+        [HttpPost]
+        public ActionResult TicTacToe(int? button)
+        {
+            var ticTacToeModel = (TicTacToe)Session["tictactoeGameModel"];
+            if (button == null || ticTacToeModel == null)
+            {
+                return TicTacToe();
+
+            }
+            //ticTacToeModel.BoxList.Add(new BoxInfo(button.Value, 'x'));
+            ticTacToeModel.GameOn(button.Value, 'x');
             return View(ticTacToeModel);
         }
     }
