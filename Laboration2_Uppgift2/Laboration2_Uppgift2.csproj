@@ -113,8 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Content\BoxInfo.cs" />
-    <Compile Include="Content\TicTacToeHelper.cs" />
+    <Compile Include="Helpers\BoxInfo.cs" />
+    <Compile Include="Helpers\GameStatus.cs" />
+    <Compile Include="Helpers\TicTacToeHelper.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

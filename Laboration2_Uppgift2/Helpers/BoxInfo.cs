@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 
-namespace Laboration2_Uppgift2.Content
+namespace Laboration2_Uppgift2.Helpers
 {
     public struct BoxInfo
     {

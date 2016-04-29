@@ -29,20 +29,29 @@
                             {
                                 var value = "";
                                 var active = "";
+                                var colorWinCombo = "";
+                                if (Model.ActiveGameStatus.Status == "Winner")
+                                {
+                                    active = "disabled";
+                                    colorWinCombo = "win"; /*bara för dem som är winningCombo*/
+                                }
                                 var box = Model.BoxList.FirstOrDefault(b => b.BoxCoordinate == x);
                                 if (box.BoxCoordinate > 0)
                                 {
                                     value = box.Value.ToString();
                                     active = "disabled";
                                 }
-                                <button type="submit" name="button" class="col-md-4 btn btn-default" value="@x" @active>@value</button>
+                                <button type="submit" name="button" class="col-md-4 btn btn-default @colorWinCombo" value="@x" @active>@value</button>
                             }
                         </div>
                     }
                 </form>
             </div>
             <div class="col-md-4 col-md-push-4 aside">
-                <h3>@Model.EfektGry</h3>
+                <h3>@Model.ActiveGameStatus.Text</h3>
+                <form action="~/Game/TicTacToe" method="get">
+                    <button type="submit" name="playAgain" class="col-md-10 col-md-push-1 playAgain " value="PlayAgain">PlayAgain</button>
+                </form>
             </div>
         </div>
         @*@Model.Players[0]

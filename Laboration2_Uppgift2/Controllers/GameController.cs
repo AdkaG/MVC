@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Laboration2_Uppgift2.Content;
+using Laboration2_Uppgift2.Helpers;
 using Laboration2_Uppgift2.Models;
 
 namespace Laboration2_Uppgift2.Controllers
@@ -13,17 +13,17 @@ namespace Laboration2_Uppgift2.Controllers
         // GET: Game
         public ActionResult TicTacToe()
         {
-            var ticTacToeModel = new TicTacToe
-            {
-                BoxList = new List<BoxInfo>
-                {
-                    new BoxInfo(1, 'x'),
-                    new BoxInfo(2, 'o'),
-                    new BoxInfo(3, 'x'),
-                    new BoxInfo(7, 'o')
-                },
-                Players = new List<string> {"Adriana", "Erik"}
-            };
+            var ticTacToeModel = new TicTacToe();
+            //{
+            //    BoxList = new List<BoxInfo>
+            //    {
+            //        new BoxInfo(1, 'x'),
+            //        new BoxInfo(2, 'o'),
+            //        new BoxInfo(3, 'x'),
+            //        new BoxInfo(7, 'o')
+            //    },
+            //    Players = new List<string> {"Adriana", "Erik"}
+            //};
 
             Session["tictactoeGameModel"] = ticTacToeModel;
             return View(ticTacToeModel);
@@ -38,7 +38,6 @@ namespace Laboration2_Uppgift2.Controllers
                 return TicTacToe();
 
             }
-            //ticTacToeModel.BoxList.Add(new BoxInfo(button.Value, 'x'));
             ticTacToeModel.GameOn(button.Value, 'x');
             return View(ticTacToeModel);
         }
